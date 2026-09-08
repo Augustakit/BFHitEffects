@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BFHitEffects UI</title>
+    
+    <!-- Include stylesheet -->
+    <link rel="stylesheet" href="./hithead.css">
+    
+    <!-- ====================================================================
+          Fallback functions: prevent Lua from calling before JS is fully loaded,
+          which would cause errors.
+          Note: GameFace parses HTML in a streaming fashion, so ExecuteJS from Lua
+          may be injected before the main script is ready.
+          We define empty stubs here; they will be overwritten once hithead.js loads.
+         ==================================================================== -->
+    <script>
+        window.BFHitEffects_AddKill = window.BFHitEffects_AddKill || function() {};
+        window.BFHitEffects_EnableSound = window.BFHitEffects_EnableSound || function() {};
+        window.BFHitEffects_UpdateSettings = window.BFHitEffects_UpdateSettings || function() {};
+    </script>
+</head>
+<body>
+    <!-- Include core logic script (using type="module" to support ES6 module imports) -->
+    <script type="module" src="./hithead.js"></script>
+</body>
+</html>
