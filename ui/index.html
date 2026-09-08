@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BFHitEffects UI</title>
+    
+    <!-- 引入样式表 -->
+    <link rel="stylesheet" href="./hithead.css">
+    
+    <!-- ====================================================================
+          兜底函数：防止 Lua 在 JS 加载完之前就调用，导致报错
+         说明：GameFace 解析 HTML 是流式的，Lua 的 ExecuteJS 可能在 JS 脚本
+         未就绪时注入。这里先定义空函数，等下面的 hithead.js 加载完后再覆盖。
+         ==================================================================== -->
+    <script>
+        window.BFHitEffects_AddKill = window.BFHitEffects_AddKill || function() {};
+        window.BFHitEffects_EnableSound = window.BFHitEffects_EnableSound || function() {};
+        window.BFHitEffects_UpdateSettings = window.BFHitEffects_UpdateSettings || function() {};
+    </script>
+</head>
+<body>
+    <!-- 引入核心逻辑脚本 (使用 type="module" 支持 ES6 模块导入) -->
+    <script type="module" src="./hithead.js"></script>
+</body>
+</html>
