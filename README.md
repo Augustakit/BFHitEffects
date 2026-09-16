@@ -26,29 +26,31 @@
 
 ```
 BFHitEffects/
-├── __init__.lua              # 客户端逻辑（一般不需要修改）
-├── config.lua                # ⭐ 玩家配置文件（大部分调整都在这里）
-├── ext/                      # VeniceEXT 扩展（模组核心逻辑）
-│   └── __init__.lua          # 服务端逻辑（一般不需要修改）
-├── ui/                       # UI 资源目录（合成 .vuic 后使用）
-│   ├── assets/               # 已打包的资源文件（合成 .vuic 时自动包含）
-│   │   ├── fonts/            # 字体文件 (.ttf/.otf)
-│   │   ├── images/           # 击杀图标 (.png)
-│   │   └── sounds/           # 音效文件 (.webm)
-│   │       ├── headshot/     # 爆头音效
-│   │       ├── normal/       # 普通击杀音效
-│   │       ├── special/      # 特殊击杀音效（刀杀/除颤等）
-│   │       ├── explosive/    # 爆炸击杀音效
-│   │       └── hit/          # 命中反馈音效
-│   ├── config.js             # ⭐⭐ 进阶配置文件（资源路径与动画参数）
-│   ├── hithead.js            # ⭐⭐⭐ 核心渲染引擎（高级玩家可调）
-│   ├── hithead.css           # UI 样式表（一般不需要修改）
-│   └── index.html            # UI 入口页面
-├── assets/                   # 预备素材文件夹（未打包的原始素材）
-│   ├── images/               # 图标素材（复制到 ui/assets/images/ 后生效）
-└── mod.json                  # 模组元数据
+├── ext/                              # VeniceEXT 扩展（模组核心逻辑）
+│   ├── client/                       # 客户端脚本（处理 UI、设置、音效）
+│   │   ├── __init__.lua              # 客户端逻辑入口（一般不需要修改）
+│   │   └── config.lua                # ⭐ 玩家配置文件（大部分调整都在这里）
+│   └── server/                       # 服务端脚本（处理击杀判定、伤害事件）
+│       └── __init__.lua              # 服务端逻辑入口（一般不需要修改）
+├── ui/                               # UI 资源目录（合成 .vuic 后使用）
+│   ├── assets/                       # 已打包的资源文件（合成 .vuic 时自动包含）
+│   │   ├── fonts/                    # 字体文件 (.ttf/.otf)
+│   │   ├── images/                   # 击杀图标 (.png)
+│   │   └── sounds/                   # 音效文件 (.webm)
+│   │       ├── headshot/             # 爆头音效
+│   │       ├── normal/               # 普通击杀音效
+│   │       ├── special/              # 特殊击杀音效（刀杀/除颤等）
+│   │       ├── explosive/            # 爆炸击杀音效
+│   │       └── hit/                  # 命中反馈音效
+│   ├── config.js                     # ⭐⭐ 进阶配置文件（资源路径与动画参数）
+│   ├── hithead.js                    # ⭐⭐⭐ 核心渲染引擎（高级玩家可调）
+│   ├── hithead.css                   # UI 样式表（一般不需要修改）
+│   └── index.html                    # UI 入口页面
+├── assets/                           # 预备素材文件夹（未打包的原始素材）
+│   └── images/                       # 图标素材（复制到 ui/assets/images/ 后生效）
+├── mod.json                          # 模组元数据
+└── ui.vuic                           # 打包后的 UI 文件（由 vuicc 工具生成）
 ```
-
 
 ## ⚙️ 第一部分：游戏内设置菜单（最简单，零门槛）
 
