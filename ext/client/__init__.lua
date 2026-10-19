@@ -269,7 +269,7 @@ end)
 -- ============================================================================
 -- 6. Receive hit feedback and damage number events (triggered by server‑side Soldier:Damage)
 -- ============================================================================
-NetEvents:Subscribe('BFHitEffects_HitFeedback', function(hitType)
+NetEvents:Subscribe('BFHitEffects_HitEvent', function(hitType)
     if not hfEnabled then return end
     WebUI:ExecuteJS(string.format('if(typeof BFHitEffects_ShowHitFeedback === "function") BFHitEffects_ShowHitFeedback("%s");', hitType))
 end)
